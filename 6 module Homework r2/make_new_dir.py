@@ -1,4 +1,5 @@
 from pathlib import Path
+
 def make_new_dir(path_to_folder: str):
     path = Path(path_to_folder)
     images_flag = None
@@ -46,16 +47,26 @@ def make_new_dir(path_to_folder: str):
     if images_flag:
         images_folder = path.joinpath("images")
         images_folder.mkdir()
+        global path_images 
+        path_images = images_folder.absolute()     
     if documents_flag:
-        images_folder = path.joinpath("documents")
-        images_folder.mkdir()
+        documents_folder = path.joinpath("documents")
+        documents_folder.mkdir()
+        global path_documents 
+        path_documents = documents_folder.absolute()
     if audio_flag:
-        images_folder = path.joinpath("audio")
-        images_folder.mkdir()
+        audio_folder = path.joinpath("audio")
+        audio_folder.mkdir()
+        global path_audio 
+        path_audio = audio_folder.absolute()
     if video_flag:
-        images_folder = path.joinpath("video")
-        images_folder.mkdir()
+        video_folder = path.joinpath("video")
+        video_folder.mkdir()
+        global path_video 
+        path_video = video_folder.absolute()
     if archives_flag:
-        images_folder = path.joinpath("archives")
-        images_folder.mkdir()
+        archives_folder = path.joinpath("archives")
+        archives_folder.mkdir()
+        global path_archives 
+        path_archives = archives_folder.absolute()
     
