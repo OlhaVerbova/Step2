@@ -18,37 +18,82 @@ def parsing_the_folder(path_to_folder: str):
         if item.is_file():            
             print("Тут есть файл: ", item.name)
             if images_processing(item.name): # Если название имеет суфикс изображения
-                if (make_new_dir.path_images / item.name).exists():
-                    continue
+                if (path / item.name).exists(): #make_new_dir.path_images 
+                    try:
+                        new_item_name = item.stem + "_copy_" + str(iterator_of_version_files) + item.suffix
+                        result_name = item.with_name(new_item_name) # fix
+                        item.rename(result_name) # fix
+                        iterator_of_version_files += 1
+                        shutil.move(result_name, make_new_dir.path_images)
+                        #print(f"Файл {item.name} перемещен в папку {make_new_dir.path_images} 'documents'")
+                    except FileNotFoundError:
+                        print("от халепа")
+                    finally:
+                        continue
                 else:
                     shutil.move(item, make_new_dir.path_images)
                     print(f"Файл {item.name} перемещен в папку {make_new_dir.path_images.name} 'images'")
             if audio_processing(item.name):
-                if (make_new_dir.path_audio / item.name).exists():
-                    continue
+                if (path / item.name).exists():
+                    try:
+                        new_item_name = item.stem + "_copy_" + str(iterator_of_version_files) + item.suffix
+                        result_name = item.with_name(new_item_name) # fix
+                        item.rename(result_name) # fix
+                        iterator_of_version_files += 1
+                        shutil.move(result_name, make_new_dir.path_audio)
+                        #print(f"Файл {item.name} перемещен в папку {make_new_dir.path_audio} 'documents'")
+                    except FileNotFoundError:
+                        print("от халепа")
+                    finally:
+                        continue
                 else:                    
                     shutil.move(item, make_new_dir.path_audio)
                     print(f"Файл {item.name} перемещен в папку {make_new_dir.path_audio.name} 'audio'")
             if video_processing(item.name):
-                if (make_new_dir.path_video / item.name).exists():
-                    continue
+                if (path / item.name).exists():
+                    try:
+                        new_item_name = item.stem + "_copy_" + str(iterator_of_version_files) + item.suffix
+                        result_name = item.with_name(new_item_name) # fix
+                        item.rename(result_name) # fix
+                        iterator_of_version_files += 1
+                        shutil.move(result_name, make_new_dir.path_video)
+                        #print(f"Файл {item.name} перемещен в папку {make_new_dir.path_video} 'video'")
+                    except FileNotFoundError:
+                        print("от халепа")
+                    finally:
+                        continue
                 else:
                     shutil.move(item, make_new_dir.path_video)
                     print(f"Файл {item.name} перемещен в папку {make_new_dir.path_video.name} 'video'")
             if archives_processing(item.name):
-                if (make_new_dir.path_archives / item.name).exists():
-                    continue
+                if (path / item.name).exists():
+                    try:
+                        new_item_name = item.stem + "_copy_" + str(iterator_of_version_files) + item.suffix
+                        result_name = item.with_name(new_item_name) # fix
+                        item.rename(result_name) # fix
+                        iterator_of_version_files += 1
+                        shutil.move(result_name, make_new_dir.path_archives)
+                        #print(f"Файл {item.name} перемещен в папку {make_new_dir.path_archives} 'archives'")
+                    except FileNotFoundError:
+                        print("от халепа")
+                    finally:
+                        continue
                 else:
                     shutil.move(item, make_new_dir.path_archives)
                     print(f"Файл {item.name} перемещен в папку {make_new_dir.path_archives.name} 'archives'")
             if documents_processing(item.name):
-                if (make_new_dir.path_documents / item.name).exists():
-                    """new_item_name = item.stem + "copy_" + str(iterator_of_version_files) + item.suffix
-                    item.rename(new_item_name)
-                    iterator_of_version_files += 1
-                    shutil.move(item, make_new_dir.path_documents)
-                    print(f"Файл {item.name} перемещен в папку {make_new_dir.path_documents.name} 'documents'")"""
-                    continue
+                if (path / item.name).exists():#есть ли файл в папке
+                    try:
+                        new_item_name = item.stem + "_copy_" + str(iterator_of_version_files) + item.suffix
+                        result_name = item.with_name(new_item_name) # fix
+                        item.rename(result_name) # fix
+                        iterator_of_version_files += 1
+                        shutil.move(result_name, make_new_dir.path_documents)
+                        print(f"Файл {item.name} перемещен в папку {make_new_dir.path_documents.name} 'documents'")
+                    except FileNotFoundError:
+                        print("от халепа")
+                    finally:
+                        continue                    
                 else:
                     shutil.move(item, make_new_dir.path_documents)
                     print(f"Файл {item.name} перемещен в папку {make_new_dir.path_documents.name} 'documents'")
