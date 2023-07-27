@@ -1,9 +1,15 @@
 
+global IMAGES
 IMAGES = ['JPEG', 'PNG', 'JPG', 'SVG']
+global DOCUMENTS
 DOCUMENTS = ['DOC', 'DOCX', 'TXT', 'PDF', 'XLSX', 'PPTX']
+global AUDIO
 AUDIO = ['MP3', 'OGG', 'WAV', 'AMR']
+global VIDEO
 VIDEO = ['AVI', 'MP4', 'MOV', 'MKV']
+global ARCHIVES
 ARCHIVES = ['ZIP', 'GZ', 'TAR']
+global UNKNOWN_EXTENSION
 UNKNOWN_EXTENSION = []
 
 def images_processing(file_name: str):
