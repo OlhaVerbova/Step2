@@ -69,4 +69,3 @@ def make_new_dir(path_to_folder: str):
         archives_folder.mkdir()
         global path_archives 
         path_archives = archives_folder.absolute()
-    
